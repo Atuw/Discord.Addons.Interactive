@@ -24,11 +24,12 @@ namespace Discord.Addons.Interactive
         public Task<IUserMessage> ReplyAndDeleteAsync(string content, bool isTTS = false, Embed embed = null, TimeSpan? timeout = null, RequestOptions options = null)
             => Interactive.ReplyAndDeleteAsync(Context, content, isTTS, embed, timeout, options);
 
-        public Task<IUserMessage> PagedReplyAsync(IEnumerable<object> pages, bool fromSourceUser = true)
+        public Task<IUserMessage> PagedReplyAsync(IEnumerable<EmbedFieldBuilder> firstColumns, IEnumerable<EmbedFieldBuilder> secondColumns, bool fromSourceUser = true)
         {
-            var pager = new PaginatedMessage
-            {
-                Pages = pages
+			var pager = new PaginatedMessage
+			{
+				FirstColumns = firstColumns,
+				SecondColumns = secondColumns
             };
             return PagedReplyAsync(pager, fromSourceUser);
         }

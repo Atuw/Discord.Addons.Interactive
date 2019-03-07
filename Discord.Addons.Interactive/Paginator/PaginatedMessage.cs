@@ -4,7 +4,8 @@ namespace Discord.Addons.Interactive
 {
     public class PaginatedMessage
     {
-        public IEnumerable<object> Pages { get; set; }
+		public IEnumerable<EmbedFieldBuilder> FirstColumns { get; set; }
+		public IEnumerable<EmbedFieldBuilder> SecondColumns { get; set; }
 
         public string Content { get; set; } = "";
 

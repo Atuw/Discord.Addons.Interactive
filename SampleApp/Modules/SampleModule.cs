@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using Discord;
 using Discord.Addons.Interactive;
 using Discord.Commands;
 
@@ -37,8 +39,9 @@ namespace SampleApp.Modules
         [Command("paginator")]
         public async Task Test_Paginator()
         {
-            var pages = new[] { "Page 1", "Page 2", "Page 3", "aaaaaa", "Page 5" };
-            await PagedReplyAsync(pages);
+			var firstColumns = new List<EmbedFieldBuilder>();
+			var secondColumns = new List<EmbedFieldBuilder>();
+			await PagedReplyAsync(firstColumns, secondColumns);
         }
     }
 }
